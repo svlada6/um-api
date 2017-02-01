@@ -1,0 +1,236 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "UM API",
+        "version": "1.0.0"
+    },
+    "basePath": "/api",
+    "paths": {
+        "/auth/recovery": {
+            "post": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Send reset password link",
+                "description": "Send reset password link to email",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Reset password",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/ForgotPasswordRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Authorize user",
+                "description": "Authorize user",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "auth",
+                        "in": "body",
+                        "description": "Auth info",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/LoginAPIRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "status": {
+                                    "type": "string"
+                                },
+                                "token": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/reset": {
+            "post": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Send reset password link",
+                "description": "Send reset password link to email",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Reset password",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/ResetPasswordRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/signup": {
+            "post": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Sign up new user",
+                "description": "Store Account",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Account that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/SignUpRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "status": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "422": {
+                        "description": "validaton error",
+                        "schema": {
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                },
+                                "errors": {
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ID": {
+            "properties": {
+                "id": {
+                    "description": "id",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "ForgotPasswordRequest": {
+            "properties": {
+                "email": {
+                    "description": "email address",
+                    "type": "string"
+                }
+            }
+        },
+        "LoginAPIRequest": {
+            "required": [],
+            "properties": {
+                "email": {
+                    "description": "email",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "password",
+                    "type": "string"
+                }
+            }
+        },
+        "ResetPasswordRequest": {
+            "properties": {
+                "token": {
+                    "description": "token",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "email address",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "password",
+                    "type": "string"
+                }
+            }
+        },
+        "SignUpRequest": {
+            "required": [],
+            "properties": {
+                "name": {
+                    "description": "name",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "email",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "password",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
