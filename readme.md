@@ -18,6 +18,6 @@ run "php artisan key:generate", "php artisan jwt:generate"
 
 run "php artisan migrate" to generate user tables
 
-check api documentation on http://localhost/api/docs
+check api documentation on http://um-api.dev/api/docs
 
 consume api

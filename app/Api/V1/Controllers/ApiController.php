@@ -32,3 +32,54 @@ class ApiController extends Controller
  *      )
  *     )
  */
+
+/**
+ *
+ * @SWG\Get(
+ *      path="/hello",
+ *      summary="Public endpoint",
+ *      tags={"Public"},
+ *      description="Public endpoint",
+ *      produces={"application/json"},
+ *      @SWG\Parameter(
+ *          type="string",
+ *          name="Authorization",
+ *          in="header",
+ *          required=true
+ *      ),
+ *      @SWG\Response(
+ *          response=200,
+ *          description="successful operation",
+ *          @SWG\Schema(
+ *              type="object",
+ *              @SWG\Property(
+ *                  property="message",
+ *                  type="string"
+ *              )
+ *          )
+ *      )
+ *   )
+ **/
+
+/**
+ *
+ * @SWG\Get(
+ *      path="/protected",
+ *      summary="Protected endpoint",
+ *      tags={"Protected"},
+ *      description="Protected endpoint",
+ *      produces={"application/json"},
+ *
+ *      @SWG\Response(
+ *          response=200,
+ *          description="successful operation",
+ *          @SWG\Schema(
+ *              type="object",
+ *              @SWG\Property(
+ *                  property="message",
+ *                  type="string"
+ *              )
+ *          )
+ *      )
+ *   )
+ **/

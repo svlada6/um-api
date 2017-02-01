@@ -6,6 +6,64 @@
     },
     "basePath": "/api",
     "paths": {
+        "/hello": {
+            "get": {
+                "tags": [
+                    "Public"
+                ],
+                "summary": "Public endpoint",
+                "description": "Public endpoint",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/protected": {
+            "get": {
+                "tags": [
+                    "Protected"
+                ],
+                "summary": "Protected endpoint",
+                "description": "Protected endpoint",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
         "/auth/recovery": {
             "post": {
                 "tags": [
